@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>World Bank Data</title>
-  <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js'></<script src='http://code.highcharts.com/highcharts.js'></script>
+  <title>World Bank Api Data</title>
+  <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js'></script>
+  <script src='http://code.highcharts.com/highcharts.js'></script>
   <link rel='stylesheet' type='text/css' href='main.css'>
   <script src='app.js'></script>
   <script type='text/javascript' src='mapWrapper.js'></script>
+  <script src='lineChart.js'></script>
+  <script src='worldLineChart.js'></script>
 </head>
 <body>
-  <h1>World Bank: Country Data</h1>
-    <h2>Select a country</h2>
-  <select id='drop-down' onchange='onchange'></select>
+
+  <h1>World Bank: Population Data</h1>
+  <select id='drop-down' onchange='onchange'>
+    <option id='the-world'>Select a country</option>
+  </select>
+
   <ul></ul>
+
   <div id='main-map'></div>
+  <br>
+  <div id="line-chart"></div>
+
 </body>
 </html>
