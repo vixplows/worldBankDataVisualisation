@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>World Bank Data</title>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js'></script>
+  <script src='http://code.highcharts.com/highcharts.js'></script>
   <link rel='stylesheet' type='text/css' href='main.css'>
   <script src='app.js'></script>
-  <script type="text/javascript" src="mapWrapper.js"></script>
+  <script type='text/javascript' src='mapWrapper.js'></script>
 </head>
 <body>
-  <h1>World Bank Countries</h1>
+  <h1>World Bank: Country Data</h1>
+  <h2> Select a country</h2>
+  <select id="drop-down" onchange = "onchange"></select>
   <ul id='country-list'>
   </ul>
   <div id='main-map'></div>

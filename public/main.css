@@ -1,9 +1,14 @@
 h1 {
   font-family: verdana;
-  color: dodgerblue;
+  color: steelblue;
+}
+
+h2 {
+  font-family: arial;
+  font-size: smaller;
 }
 
 #main-map {
-  height:500px;
+  height:300px;
   width:500px;
 }
