@@ -5,7 +5,6 @@ var initialize = function(){
 
   var mainMap = new MapWrapper(mapDiv, center, 10);
 
-  mainMap.addClickEvent();
   mainMap.addInfoWindow(center, "HEADQUARTERS <br> THE WORLD BANK <b>");
 }
 
