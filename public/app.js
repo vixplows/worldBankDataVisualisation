@@ -18,9 +18,7 @@ var initialize = function(){
 
 var makeRequest = function(url, callback) {
   var request = new XMLHttpRequest();
-
   request.addEventListener('load', callback);
-
   request.open('GET', url, true);
   request.send();
 }
@@ -60,15 +58,19 @@ var populateDropDown = function(countries) {
      var jsonString = this.responseText;
      var response = JSON.parse(jsonString);
      var country = response[1][0];
-     console.log(country);
+     // console.log(country);
+
      var mapDiv = document.querySelector('#main-map');
      var position = { lat: parseFloat(country.latitude), lng: parseFloat(country.longitude) };
      var mainMap = new MapWrapper(mapDiv, position, 10);
      mainMap.addInfoWindow(position, 'Country: ' +
       country.name + '<br> Capital city: ' + country.capitalCity + '<br>' + 'Income level: ' + country.incomeLevel.value);
+
+     new LineChart(country);
+     // console.log(country);
+
    });
   };
-
-}   
+}
 
 window.addEventListener('load', initialize);
