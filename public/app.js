@@ -4,16 +4,15 @@ var initialize = function(){
     if (this.status !== 200) return; 
     var jsonString = this.responseText;
     var response = JSON.parse(jsonString);
-   // first element of response = metadata re. response
-   // countries = an array of country objects
+   // countries is an array of country objects; the first element in response not needed as metadata
    var countries = response[1];
    populateDropDown(countries);
-});
+ });
 
   var mapDiv = document.querySelector('#main-map');
   navigator.geolocation.getCurrentPosition(function(position) {
     var center = {lat: position.coords.latitude, lng: position.coords.longitude}; 
-  var mainMap = new MapWrapper(mapDiv, center, 10);
+    var mainMap = new MapWrapper(mapDiv, center, 10);
   });
 }
 
@@ -31,7 +30,7 @@ var populateDropDown = function(countries) {
   var select = document.querySelector("#drop-down");
 
   countries.forEach(function(country){
-    // checking if all chars in iso2Code are letters, if contain a number = a region not a country therefore do no include in dropdown list:
+    // to remove regions and leave only countries in list
     if (/^[a-zA-Z]+$/.test(country.iso2Code)) {
       countryList.push(country);
     }
@@ -56,18 +55,18 @@ var populateDropDown = function(countries) {
 
   dropDown.onchange = function() {
     var url = 'http://api.worldbank.org/v2/countries/' + this.value +'?format=json';
-      makeRequest(url, function(){
-         if (this.status !== 200) return; 
-          var jsonString = this.responseText;
-          var response = JSON.parse(jsonString);
-          var country = response[1][0];
-          console.log(country);
-          var mapDiv = document.querySelector('#main-map');
-          var position = { lat: parseFloat(country.latitude), lng: parseFloat(country.longitude) };
-          var mainMap = new MapWrapper(mapDiv, position, 10);
-          mainMap.addInfoWindow(position, 'Country: ' +
-              country.name + '<br> Capital city: ' + country.capitalCity + '<br>' + 'Income level: ' + country.incomeLevel.value);
-      });
+    makeRequest(url, function(){
+     if (this.status !== 200) return; 
+     var jsonString = this.responseText;
+     var response = JSON.parse(jsonString);
+     var country = response[1][0];
+     console.log(country);
+     var mapDiv = document.querySelector('#main-map');
+     var position = { lat: parseFloat(country.latitude), lng: parseFloat(country.longitude) };
+     var mainMap = new MapWrapper(mapDiv, position, 10);
+     mainMap.addInfoWindow(position, 'Country: ' +
+      country.name + '<br> Capital city: ' + country.capitalCity + '<br>' + 'Income level: ' + country.incomeLevel.value);
+   });
   };
 
 }   
