@@ -29,7 +29,7 @@ var populateDropDown = function(countries) {
 
   countries.forEach(function(country){
     // to remove regions and leave only countries in list
-    if (/^[a-zA-Z]+$/.test(country.iso2Code)) {
+    if (country.capitalCity != "") {
       countryList.push(country);
     }
   });
