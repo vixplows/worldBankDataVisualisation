@@ -4,18 +4,17 @@ h1 {
   color: steelblue;
 }
 
-h2 {
-  font-family: arial;
-  font-size: smaller;
-  color: slategrey;
-}
-
 #main-map {
   height:300px;
-  width:1000px;
+  width:800px;
 }
 
 #line-chart {
+  height:500px;
+  width:1000px;
+}
+
+#world-line-chart {
   height:500px;
   width:1000px;
 }
