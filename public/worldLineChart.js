@@ -8,13 +8,11 @@ var WorldLineChart = function() {
     var jsonString = this.responseText;
     var response = JSON.parse(jsonString);
     var world = response[1];
-    // console.log(world);
 
     var population = [];
     for (var i = world.length - 1; i >= 0; --i) {
       population.push(world[i].value);
     };
-    // console.log(population);
 
     var chart = new Highcharts.Chart(container, {
       title: {
